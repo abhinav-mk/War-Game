@@ -15,8 +15,9 @@ class Deck():
         self.cards = []
         self.total_cards = deck_count * 52
         for index in range(deck_count):
-            for card_number in range(2, 15):
-                self.cards.append(card_number)
+            for i in range(4):
+                for card_number in range(2, 15):
+                    self.cards.append(card_number)
         random.shuffle(self.cards)
 
     def assign_cards_to_players(self, players):
@@ -29,7 +30,7 @@ class Deck():
                 raise ValueError('There should be at least two players the cards should be distributed to')
             cards_count_per_player = int(self.total_cards / players_count)
             for player in players:
-                player.assign_cards(get_cards_from_deck(cards_count_per_player))
+                player.assign_cards(self.get_cards_from_deck(cards_count_per_player))
         except ValueError as error:
             print(error)
             exit()

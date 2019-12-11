@@ -28,3 +28,12 @@ class Player():
         Usage: useful to eliminate the player from the game
         """
         return len(self.player_deck) == 0
+    
+    def play_a_card(self):
+        try:
+            if len(self.player_deck) == 0:
+                raise ValueError("This player does not have any cards or is not playing")
+            return self.player_deckpop(0)
+        except ValueError as error:
+            print(error)
+            exit()
