@@ -8,16 +8,23 @@ class Player():
         self.player_deck = []
 
     def assign_cards(self, cards):
+        """
+        This function adds the cards to the players hand/deck.
+        Usage: useful during the beginning of the game where
+        each user is assigned cards and also to add the cards that are won 
+        during a round to the hand/deck. 
+        """
         try:
             if len(cards) < 1:
                 raise ValueError("Please assign at least one card to the player")
-            self.player_deck = cards
+            self.player_deck += cards
         except ValueError as error:
             print(error)
             exit()
 
-    def add_cards(self, cards):
-        self.player_deck + cards
-
     def is_deck_empty(self):
+        """
+        This function returns true if the player does not possess any card
+        Usage: useful to eliminate the player from the game
+        """
         return len(self.player_deck) == 0
