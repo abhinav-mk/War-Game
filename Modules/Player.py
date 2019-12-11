@@ -33,7 +33,7 @@ class Player():
         try:
             if len(self.player_deck) == 0:
                 raise ValueError("This player does not have any cards or is not playing")
-            return self.player_deckpop(0)
+            return self.player_deck.pop(0)
         except ValueError as error:
             print(error)
             exit()
