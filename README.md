@@ -16,10 +16,12 @@ Tests
 -----
 This project currently has 3 test scripts to test Player, Deck and Classic classes.
 These can be run by the following commands:
-```cd Testcases
+```
+cd Testcases
 python3 deck_test.py
 python3 classic_test.py
-python3 player_test.py```
+python3 player_test.py
+```
 
 Project Structure
 -----------------
