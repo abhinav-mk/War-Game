@@ -14,6 +14,7 @@ To run the game, run the following command:
 
 Project Structure
 -----------------
+<pre>
 War-Game --> Project root folder
   ├── run.py            # Run this file to initialize the game.
   ├── Game.py           # Handles initialization of the game including players, decks and Variants, and playing the game.
@@ -26,7 +27,7 @@ War-Game --> Project root folder
   ├── Docs              # This contains the documentation of the functionality, purpose and assumptions for each of the above defined structures.
   ├── tests             # This folder defines tests to make sure the new code does not bring in loopholes and break the functionality  
   ├── License
-
+</pre>
 Game.py
 -------
 Game class is responsible for running the entire game starting from initializing all the objects(Players, Decks) and the Variants(Classic, etc) and taking the inputs from the user and displaying the results. This class directly interacts with rest of the classes in the project and the entry to the game.
