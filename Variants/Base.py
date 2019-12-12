@@ -1,5 +1,3 @@
-import random
-
 class Base():
     """
     This class represents the base variation of the game upon which other variations can be 

@@ -4,8 +4,7 @@ import random
 class Classic(base.Base):
     """
     The rules of the Classic variant is as follows:
-    * All the players play the card on top of their deck
-    * the player with the highest card played takes all the cards played by the players
+    * The player with the highest card played takes all the cards played by the players
     * The cards won goes to the bottom of the deck of the player who won the round
     * If two or more of the players end up playing the card of same number and its the maximum played in the round,
       then there is a tie.
