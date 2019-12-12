@@ -23,7 +23,7 @@ class Classic(base.Base):
         """
         self.cards_played_on_table = []
         self.active_players = players
-        self.max_rounds = 10
+        self.max_rounds = 100
         self.round_count = 0
         self.deck = deck
 
