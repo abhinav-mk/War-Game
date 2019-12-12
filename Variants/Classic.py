@@ -4,26 +4,28 @@ import random
 class Classic(base.Base):
     """
     The rules of the Classic variant is as follows:
-    * The player with the highest card played takes all the cards played by the players
-    * The cards won goes to the bottom of the deck of the player who won the round
+    * The player with the highest card played takes all the cards played by the players.
+    * The cards won goes to the bottom of the deck of the player who won the round.
     * If two or more of the players end up playing the card of same number and its the maximum played in the round,
       then there is a tie.
-    * Players in the tie will start a war among themselves and whoever wins takes all the cards played
-    * If a player runs out of the cards he loses and the last player with the cards wins the game
+    * Players in the tie will start a war among themselves and whoever wins takes all the cards played.
+    * If a player runs out of the cards he loses and the last player with the cards wins the game.
     * The game is played for the maximum of 100 rounds and then the player with the maximum number of cards wins the
-      game 
+      game.
+    * Ace is higher than others.
     * Edge-case: If a player ends up with a tie and runs out of cards to play, then the cards played on the table will be
       shuffled and distributed to the players involved in the tie.
     """
-    def __init__(self, players):
+    def __init__(self, players, deck):
         """
         This class initializes the active players for the current game, and a list to store all
         the cards being played on the table for a given round.
         """
         self.cards_played_on_table = []
         self.active_players = players
-        self.max_rounds = 100
+        self.max_rounds = 10
         self.round_count = 0
+        self.deck = deck
 
     def play_a_round(self, players=None):
         """
@@ -42,7 +44,18 @@ class Classic(base.Base):
             if players is None:
                 players = self.active_players
                 self.round_count += 1
+                print("players and their current deck : ")
+                for player in players:
+                    print(f"player {player.player_id}'s deck : {self.deck.get_cards_mapped_from_numbers(player.player_deck)}")
+            else:
+                print(f"----- War between {[player.player_id for player in players]} -----")
+                print("players and their current deck : ")
+                for player in players:
+                    print(f"player {player.player_id}'s deck : {self.deck.get_cards_mapped_from_numbers(player.player_deck)}")
             cards_played = [(player, player.play_a_card()) for player in players]
+            print("The cards played by the players are : ")
+            for item in cards_played:
+                print(f"player {item[0].player_id} played : {self.deck.get_cards_mapped_from_numbers([item[1]])[0]}")
             max_value_card = cards_played[0]
             for card in cards_played[1 : ]:
                 if card[1] > max_value_card[1]:
@@ -90,7 +103,7 @@ class Classic(base.Base):
 
     def get_winners(self):
         """
-        This function returns the winner who is the only active player in the game
+        This function returns the winner who is the only active player in the game.
         """
         if len(self.active_players) > 1:
             max_card_count = len(self.active_players[0].player_deck)
@@ -103,6 +116,9 @@ class Classic(base.Base):
 
     def remove_players_lost(self):
         """
-        This is a cleanup function which removes players who have lost the game after every round
+        This is a cleanup function which removes players who have lost the game after every round.
         """
+        players_to_remove = [player.player_id for player in self.active_players if player.is_deck_empty()]
+        if players_to_remove:
+            print(f"PLAYERS ELIMINATED ARE : {players_to_remove}")
         self.active_players = [player for player in self.active_players if not player.is_deck_empty()]

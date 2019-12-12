@@ -1,7 +1,7 @@
 class Player():
     """
     This player class initializes a player with a unique ID and exposes
-    functions to play a card and assign/add cards to the player's deck
+    functions to play a card and assign/add cards to the player's deck.
     """
     def __init__(self, player_id):
         self.player_id = player_id
@@ -24,8 +24,8 @@ class Player():
 
     def is_deck_empty(self):
         """
-        This function returns true if the player does not possess any card
-        Usage: useful to eliminate the player from the game
+        This function returns true if the player does not possess any card.
+        Usage: useful to eliminate the player from the game.
         """
         return len(self.player_deck) == 0
     

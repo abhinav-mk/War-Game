@@ -35,7 +35,7 @@ class Game():
             else:
                 break
         self.players = [player.Player(player_id) for player_id in range(1, player_count + 1)]
-        print(f"Player created for this game are {[player_id for player_id in range(1, player_count + 1)]}")
+        print(f"Players created for this game are {[player_id for player_id in range(1, player_count + 1)]}")
 
     def initialize_deck(self):
         """
@@ -66,23 +66,25 @@ class Game():
             try:
                 variation = int(input("Please choose the variation of the game. Enter 1 for Classic (Currently this game supports only one variation): "))
                 if variation != 1:
-                    raise ValueError("Please enter 1 or 2 to choose the variation of the game of choice")
+                    raise ValueError("Please enter 1 to choose the variation of the game of choice")
             except ValueError as error:
                 print(error)
                 continue
             else:
                 break
         if variation == 1:
-            self.variant = classic.Classic(self.players)
+            self.variant = classic.Classic(self.players, self.decks)
         self.decks.assign_cards_to_players(self.players)
         round_count = 0
         while not self.variant.end_game_reached():
+            print(f"----------------- Round {round_count + 1} -----------------")
             round_winner = self.variant.play_a_round()
-            print(f"Round {round_count + 1} winner: Player with Id {round_winner}")
+            print(f"Round {round_count + 1} winner: Player {round_winner}")
+            print("------------------------------------------------------------")
             round_count += 1
         winners = self.variant.get_winners()
         if len(winners) > 1:
-            print(f"The winners of the game are {[winner.player_id for winner in winners]}")
+            print(f"THE WINNERS OF THE GAME ARE PLAYERS {[winner.player_id for winner in winners]}")
         else:
-            print(f"The winner of the game is {winners[0].player_id}")
+            print(f"THE WINNER OF THE GAME IS PLAYER {winners[0].player_id}")
         exit()

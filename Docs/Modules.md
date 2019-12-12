@@ -2,12 +2,12 @@ This document explains the objects involved in the game such as Players and Deck
 
 Player
 ------
-* This class handles the creation of the player with a unique ID and an empty deck initialized
-* Functions are defined to assign cards to player, check if they are out of cards and to play a card
-* The functionalities of this class is being used in Game.py and Variants
+* This class handles the creation of the player with a unique ID and an empty deck initialized.
+* Functions are defined to assign cards to player, check if they are out of cards and to play a card.
+* The functionalities of this class is being used in Game.py and Variants.
 
 Deck
 ----
-* This class defines the number of decks to be used for the game
-* It has functions to assign the cards to the players initially
-* This functionalities of this class is being used in Game.py
+* This class defines the number of decks to be used for the game.
+* It has functions to assign the cards to the players initially.
+* This functionalities of this class is being used in Game.py.

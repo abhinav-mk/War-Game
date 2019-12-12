@@ -56,3 +56,6 @@ class Deck():
         returns the number of cards present in the deck unused
         """
         return len(self.cards)
+    
+    def get_cards_mapped_from_numbers(self, cards):
+        return list(map(lambda x : self.card_mapping[str(x)], cards))
