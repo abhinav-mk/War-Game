@@ -10,7 +10,16 @@ This project is built on Python 3.x and uses standard Python libraries. The proj
 Usage
 -----
 To run the game, run the following command:
-'python3 run.py'
+```python3 run.py```
+
+Tests
+-----
+This project currently has 3 test scripts to test Player, Deck and Classic classes.
+These can be run by the following commands:
+```cd Testcases```
+```python3 deck_test.py```
+```python3 classic_test.py```
+```python3 player_test.py```
 
 Project Structure
 -----------------
